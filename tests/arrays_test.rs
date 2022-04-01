@@ -53,12 +53,35 @@ fn must_be_found() {
 
 #[test]
 #[should_panic]
-fn must_not_be_found() {
+fn must_not_be_found_should_panic() {
     let s = vec![S {
         name: "S".to_owned(),
     }];
 
     expect(&s).contains(&S {
+        name: "SP".to_owned(),
+    });
+}
+
+#[test]
+#[should_panic]
+fn must_be_found_should_panic() {
+    let s = vec![S {
+        name: "S".to_owned(),
+    }];
+
+    expect(&s).not().contains(&S {
+        name: "S".to_owned(),
+    });
+}
+
+#[test]
+fn must_not_be_found() {
+    let s = vec![S {
+        name: "S".to_owned(),
+    }];
+
+    expect(&s).not().contains(&S {
         name: "SP".to_owned(),
     });
 }
