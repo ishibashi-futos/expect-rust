@@ -1,4 +1,4 @@
-use assert_rust::expect;
+use expect::expect;
 
 #[test]
 fn some() {

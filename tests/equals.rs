@@ -1,6 +1,4 @@
-extern crate assert_rust;
-
-use assert_rust::expect;
+use expect::expect;
 
 #[test]
 fn equals_str() {
