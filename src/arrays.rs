@@ -6,7 +6,7 @@ where
     T: PartialEq + Debug,
 {
     pub fn contains_all(&self, expected: &Vec<T>) -> &Self {
-        let mut has: Vec<&T> = Vec::new();
+        let mut has: Vec<&T> = Vec::with_capacity(expected.len());
 
         for expect in expected {
             if self.actual.contains(expect) {
