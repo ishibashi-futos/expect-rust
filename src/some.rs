@@ -5,11 +5,11 @@ impl<'a, T> Assert<'a, Option<T>> {
         if self.is_not() {
             match self.actual {
                 Some(_) => panic!(),
-                None => {},
+                None => {}
             }
         } else {
             match self.actual {
-                Some(_) => {},
+                Some(_) => {}
                 None => panic!(),
             }
         }

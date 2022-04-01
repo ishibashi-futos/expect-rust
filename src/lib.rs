@@ -2,9 +2,9 @@ use std::{
     borrow::BorrowMut,
     sync::{Arc, Mutex},
 };
+pub mod arrays;
 pub mod equals;
 pub mod some;
-pub mod arrays;
 
 pub struct Assert<'a, T> {
     actual: &'a T,

@@ -1,5 +1,5 @@
-use std::fmt::Debug;
 use crate::Assert;
+use std::fmt::Debug;
 
 impl<'a, T> Assert<'a, T>
 where
