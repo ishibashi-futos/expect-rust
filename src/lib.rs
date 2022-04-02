@@ -4,6 +4,7 @@ use std::{
 };
 pub mod arrays;
 pub mod equals;
+pub mod result;
 pub mod some;
 
 pub struct Assert<'a, T> {
