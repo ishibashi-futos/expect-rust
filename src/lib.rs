@@ -1,7 +1,3 @@
-use std::{
-    borrow::BorrowMut,
-    sync::{Arc, Mutex},
-};
 pub mod arrays;
 pub mod equals;
 pub mod result;
@@ -9,23 +5,39 @@ pub mod some;
 
 pub struct Assert<'a, T> {
     actual: &'a T,
-    is_not: Arc<Mutex<bool>>,
+    is_not: bool,
 }
 
 pub fn expect<'a, T>(actual: &'a T) -> Assert<'a, T> {
     Assert {
         actual,
-        is_not: Arc::new(Mutex::new(false)),
+        is_not: false,
     }
 }
 
 impl<'a, T> Assert<'a, T> {
-    pub fn not(&mut self) -> &Self {
-        *(self.is_not.borrow_mut().lock().unwrap()) = true;
-        self
+    pub fn not(&self) -> Self {
+        Assert {
+            actual: self.actual,
+            is_not: !self.is_not,
+        }
     }
 
     fn is_not(&self) -> bool {
-        *self.is_not.as_ref().lock().unwrap()
+        self.is_not
     }
+}
+
+#[test]
+fn not_once_is_not_true() {
+    let expect = expect(&true).not();
+    assert!(expect.is_not());
+    assert!(expect.is_not);
+}
+
+#[test]
+fn not_twice_is_not_false() {
+    let expect = expect(&true).not().not();
+    assert!(!expect.is_not());
+    assert!(!expect.is_not);
 }
