@@ -1,4 +1,5 @@
 pub mod arrays;
+pub mod boolean;
 pub mod equals;
 pub mod result;
 pub mod some;
