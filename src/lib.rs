@@ -5,6 +5,7 @@ pub mod map;
 pub mod panics;
 pub mod result;
 pub mod some;
+pub mod strings;
 
 pub struct Assert<'a, T> {
     actual: &'a T,

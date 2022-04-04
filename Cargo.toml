@@ -12,3 +12,4 @@ members = [
 
 
 [dependencies]
+regex = "1.5.5"
