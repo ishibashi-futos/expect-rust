@@ -2,6 +2,7 @@ pub mod arrays;
 pub mod boolean;
 pub mod equals;
 pub mod map;
+pub mod panics;
 pub mod result;
 pub mod some;
 
