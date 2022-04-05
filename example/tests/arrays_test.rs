@@ -24,7 +24,7 @@ fn should_not_be_found() {
 #[should_panic]
 fn not_should_be_found() {
     let arr = vec![1, 2, 3, 4, 5];
-    let mut expect = expect(&arr);
+    let expect = expect(&arr);
     expect.not().contains_all(&vec![1, 2, 3]);
 }
 
