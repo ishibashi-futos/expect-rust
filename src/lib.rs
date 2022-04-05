@@ -1,12 +1,12 @@
-pub mod arrays;
-pub mod boolean;
-pub mod equals;
-pub mod map;
-pub mod num;
-pub mod panics;
-pub mod result;
-pub mod some;
-pub mod strings;
+mod arrays;
+mod boolean;
+mod equals;
+mod map;
+mod num;
+mod panics;
+mod result;
+mod some;
+mod strings;
 
 pub struct Assert<'a, T> {
     actual: &'a T,
