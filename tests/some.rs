@@ -7,12 +7,12 @@ fn some() {
     expect(&v).is_some();
 }
 
-#[test]
-fn not_some() {
-    let v: Option<i32> = None;
+// #[test]
+// fn not_some() {
+//     let v: Option<i32> = None;
 
-    expect(&v).not().is_some();
-}
+//     expect(&v).not().is_some();
+// }
 
 #[test]
 #[should_panic]
@@ -22,10 +22,10 @@ fn none() {
     expect(&v).is_some();
 }
 
-#[test]
-#[should_panic]
-fn not_none() {
-    let v = Some(100);
+// #[test]
+// #[should_panic]
+// fn not_none() {
+//     let v = Some(100);
 
-    expect(&v).not().is_some();
-}
+//     expect(&v).not().is_some();
+// }

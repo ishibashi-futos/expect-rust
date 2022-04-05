@@ -7,19 +7,13 @@ where
     E: Debug + PartialEq,
 {
     pub fn is_ok(&self) -> &Self {
-        if self.is_not() && self.actual.is_ok() {
-            panic!("must be Err: actual: {:?}", self.actual);
-        } else if !self.is_not() && self.actual.is_err() {
+        if self.actual.is_err() {
             panic!("must be Ok: actual: {:?}", self.actual);
         }
         self
     }
 
     pub fn ok_and_equals(&self, expected: &S) -> &Self {
-        if self.is_not() {
-            panic!("Invalid Operation: not().ok_and_equals");
-        }
-
         match &self.actual {
             &Ok(ref v) => {
                 if v != expected {
@@ -37,19 +31,13 @@ where
     }
 
     pub fn is_err(&self) -> &Self {
-        if self.is_not() && self.actual.is_err() {
-            panic!("must be Ok: actual: {:?}", self.actual);
-        } else if !self.is_not() && self.actual.is_ok() {
+        if self.actual.is_ok() {
             panic!("must be Err: actual: {:?}", self.actual);
         }
         self
     }
 
     pub fn err_and_equals(&self, expected: &E) -> &Self {
-        if self.is_not() {
-            panic!("Invalid Operation: not().err_and_equals");
-        }
-
         match &self.actual {
             &Ok(_) => {
                 panic!("must be Err: actual: {:?}", self.actual);

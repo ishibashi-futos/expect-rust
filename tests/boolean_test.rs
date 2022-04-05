@@ -19,19 +19,19 @@ fn is_true_ok() {
     expect.is_true();
 }
 
-#[test]
-#[should_panic]
-fn not_is_true_ok() {
-    let expect = expect(&true);
-    expect.not().is_true();
-}
+// #[test]
+// #[should_panic]
+// fn not_is_true_ok() {
+//     let expect = expect(&true);
+//     expect.not().is_true();
+// }
 
-#[test]
-#[should_panic]
-fn not_is_false_ok() {
-    let expect = expect(&false);
-    expect.not().is_false();
-}
+// #[test]
+// #[should_panic]
+// fn not_is_false_ok() {
+//     let expect = expect(&false);
+//     expect.not().is_false();
+// }
 
 #[test]
 #[should_panic(expected = "expected true, got false")]
