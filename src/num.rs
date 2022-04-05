@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{fmt::Display, ops::Range};
 
 use crate::Assert;
 
@@ -42,6 +42,17 @@ where
             "should be less than to expected: expected={}, actual{}",
             expected,
             self.actual
+        );
+        self
+    }
+
+    pub fn in_range(&self, expected: Range<T>) -> &Self {
+        assert!(
+            expected.contains(self.actual),
+            "not included in range: {} in [{}..={}]",
+            self.actual,
+            expected.start,
+            expected.end
         );
         self
     }

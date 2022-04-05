@@ -101,3 +101,26 @@ fn less_than_to_50_and_51_should_panic() {
 
     expect(&actual).less_than_to(&expected);
 }
+
+#[test]
+fn in_range_include() {
+    let actual = 100;
+
+    expect(&actual).in_range(100..200);
+}
+
+#[test]
+#[should_panic(expected = "not included in range: 100 in [101..=200]")]
+fn in_range_not_included() {
+    let actual = 100usize;
+
+    expect(&actual).in_range(101..200);
+}
+
+#[test]
+#[should_panic(expected = "not included in range: 200 in [101..=200]")]
+fn in_range_not_included2() {
+    let actual = 200usize;
+
+    expect(&actual).in_range(101..200);
+}
