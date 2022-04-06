@@ -41,17 +41,17 @@ fn equals_struct() {
     });
 }
 
-// #[test]
-// fn not_equals_struct() {
-//     let s = TestStruct {
-//         x: 100.0,
-//         y: 3.14,
-//         name: "TestStruct".to_owned(),
-//     };
+#[test]
+fn not_equals_struct() {
+    let s = TestStruct {
+        x: 100.0,
+        y: 3.14,
+        name: "TestStruct".to_owned(),
+    };
 
-//     expect(&s).not().equals(&TestStruct {
-//         x: 100.0,
-//         y: 3.15,
-//         name: "TestStruct".to_owned(),
-//     });
-// }
+    expect(&s).not().equals(&TestStruct {
+        x: 100.0,
+        y: 3.15,
+        name: "TestStruct".to_owned(),
+    });
+}

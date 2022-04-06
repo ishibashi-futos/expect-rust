@@ -46,12 +46,18 @@ where
                 has.push(expect);
             }
         }
-        if expected.len() != 0 {
-            panic!(
-                "should"
-            )
-        }
+        assert!(has.len() == 0, "should not have {:?} in actual", expected);
 
+        self
+    }
+
+    pub fn contains(&self, expected: &T) -> &Self {
+        assert!(
+            !self.actual.contains(expected),
+            "should not have {:?} in {:?}",
+            expected,
+            self.actual
+        );
         self
     }
 }

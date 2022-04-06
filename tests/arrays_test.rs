@@ -20,20 +20,20 @@ fn should_not_be_found() {
     ]);
 }
 
-// #[test]
-// #[should_panic]
-// fn not_should_be_found() {
-//     let arr = vec![1, 2, 3, 4, 5];
-//     let expect = expect(&arr);
-//     expect.not().contains_all(&vec![1, 2, 3]);
-// }
+#[test]
+#[should_panic]
+fn not_should_be_found() {
+    let arr = vec![1, 2, 3, 4, 5];
+    let expect = expect(&arr);
+    expect.not().contains_all(&vec![1, 2, 3]);
+}
 
-// #[test]
-// fn not_should_not_be_found() {
-//     let arr = vec!["a".to_owned(), "b".to_owned(), "c".to_owned()];
+#[test]
+fn not_should_not_be_found() {
+    let arr = vec!["a".to_owned(), "b".to_owned(), "c".to_owned()];
 
-//     expect(&arr).not().contains_all(&vec!["d".to_owned()]);
-// }
+    expect(&arr).not().contains_all(&vec!["d".to_owned()]);
+}
 
 #[derive(PartialEq, Debug)]
 struct S {
@@ -63,25 +63,25 @@ fn must_not_be_found_should_panic() {
     });
 }
 
-// #[test]
-// #[should_panic]
-// fn must_be_found_should_panic() {
-//     let s = vec![S {
-//         name: "S".to_owned(),
-//     }];
+#[test]
+#[should_panic]
+fn must_be_found_should_panic() {
+    let s = vec![S {
+        name: "S".to_owned(),
+    }];
 
-//     expect(&s).not().contains(&S {
-//         name: "S".to_owned(),
-//     });
-// }
+    expect(&s).not().contains(&S {
+        name: "S".to_owned(),
+    });
+}
 
-// #[test]
-// fn must_not_be_found() {
-//     let s = vec![S {
-//         name: "S".to_owned(),
-//     }];
+#[test]
+fn must_not_be_found() {
+    let s = vec![S {
+        name: "S".to_owned(),
+    }];
 
-//     expect(&s).not().contains(&S {
-//         name: "SP".to_owned(),
-//     });
-// }
+    expect(&s).not().contains(&S {
+        name: "SP".to_owned(),
+    });
+}
