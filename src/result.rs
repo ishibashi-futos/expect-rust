@@ -17,7 +17,8 @@ where
                 assert!(
                     v == expected,
                     "must be Ok and equals: expected: {:?}, actual: {:?}",
-                    expected, v
+                    expected,
+                    v
                 );
             }
             &Err(_) => {
@@ -28,7 +29,11 @@ where
     }
 
     pub fn is_err(&self) -> &Self {
-        assert!(self.actual.is_err(), "must be Err: actual: {:?}", self.actual);
+        assert!(
+            self.actual.is_err(),
+            "must be Err: actual: {:?}",
+            self.actual
+        );
         self
     }
 
@@ -41,7 +46,8 @@ where
                 assert!(
                     e == expected,
                     "must be Err and equals: expected: {:?}, actual: {:?}",
-                    expected, e
+                    expected,
+                    e
                 );
             }
         }
