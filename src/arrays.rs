@@ -28,7 +28,8 @@ where
         assert!(
             self.actual.contains(expected),
             "must be found: array: {:?}, expected: {:?}",
-            self.actual, expected
+            self.actual,
+            expected
         );
 
         self
