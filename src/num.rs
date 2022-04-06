@@ -49,7 +49,7 @@ where
     pub fn in_range(&self, expected: Range<T>) -> &Self {
         assert!(
             expected.contains(self.actual),
-            "not included in range: {} in [{}..={}]",
+            "not included in range: {} in [{}..{}]",
             self.actual,
             expected.start,
             expected.end

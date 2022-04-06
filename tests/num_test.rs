@@ -110,7 +110,7 @@ fn in_range_include() {
 }
 
 #[test]
-#[should_panic(expected = "not included in range: 100 in [101..=200]")]
+#[should_panic(expected = "not included in range: 100 in [101..200]")]
 fn in_range_not_included() {
     let actual = 100usize;
 
@@ -118,7 +118,7 @@ fn in_range_not_included() {
 }
 
 #[test]
-#[should_panic(expected = "not included in range: 200 in [101..=200]")]
+#[should_panic(expected = "not included in range: 200 in [101..200]")]
 fn in_range_not_included2() {
     let actual = 200usize;
 
