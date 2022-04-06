@@ -6,10 +6,8 @@ where
     T: Debug,
 {
     pub fn is_some(&self) -> &Self {
-        match self.actual {
-            Some(_) => {}
-            None => panic!("should be equal to Some: {:?}", self.actual),
-        };
+        assert!(self.actual.is_some(), "should be equal to Some: {:?}", self.actual);
+
         self
     }
 }
@@ -19,10 +17,8 @@ where
     T: Debug,
 {
     pub fn is_some(&self) -> &Self {
-        match self.actual {
-            Some(_) => panic!("should be equal to None: {:?}", self.actual),
-            None => {}
-        };
+        assert!(self.actual.is_none(), "should be equal to None: {:?}", self.actual);
+
         self
     }
 }

@@ -14,23 +14,23 @@ where
             }
         }
 
-        if expected.len() != has.len() {
-            panic!(
-                "should be found: expected: {:?}, actual: {:?}",
-                expected, self.actual
-            )
-        }
+        assert!(
+            expected.len() == has.len(),
+            "should be found: expected: {:?}, actual: {:?}",
+            expected,
+            self.actual
+        );
 
         self
     }
 
     pub fn contains(&self, expected: &T) -> &Self {
-        if !self.actual.contains(expected) {
-            panic!(
-                "must be found: array: {:?}, expected: {:?}",
-                self.actual, expected
-            )
-        }
+        assert!(
+            self.actual.contains(expected),
+            "must be found: array: {:?}, expected: {:?}",
+            self.actual, expected
+        );
+
         self
     }
 }
