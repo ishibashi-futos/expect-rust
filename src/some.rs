@@ -28,7 +28,9 @@ where
     }
 
     pub fn unwrap_some(&self) -> Assert<'a, T> {
-        Assert { actual: self.is_some().actual.as_ref().unwrap() }
+        Assert {
+            actual: self.is_some().actual.as_ref().unwrap(),
+        }
     }
 }
 
