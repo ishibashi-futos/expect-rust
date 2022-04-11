@@ -7,6 +7,8 @@ authors = [
     "ishibashi-futoshi <ishibashi.futos@outlook.com>"
 ]
 description = "This is the jest expect like matcher."
+readme = "README.md"
+homepage = "https://github.com/ishibashi-futos/expect-rust"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
