@@ -2,7 +2,7 @@
 name = "expect_rs"
 version = "0.0.1"
 edition = "2021"
-license-file = "LICENSE"
+license = "MIT"
 authors = [
     "ishibashi-futoshi <ishibashi.futos@outlook.com>"
 ]
