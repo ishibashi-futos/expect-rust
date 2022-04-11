@@ -1,4 +1,4 @@
-use expect::expect;
+use expect_rs::expect;
 
 #[test]
 fn not_expect_can_be_used_without_even_not() {

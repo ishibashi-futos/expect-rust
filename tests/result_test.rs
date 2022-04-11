@@ -1,4 +1,4 @@
-use expect::expect;
+use expect_rs::expect;
 
 #[test]
 fn is_ok_ok_passed() {

@@ -1,4 +1,4 @@
-use expect::expect;
+use expect_rs::expect;
 
 #[test]
 fn should_panic_has_err() {

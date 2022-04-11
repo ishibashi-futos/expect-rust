@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use expect::expect;
+use expect_rs::expect;
 
 #[test]
 fn found_it() {

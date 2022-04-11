@@ -1,9 +1,9 @@
 [package]
 name = "example"
 version = "0.1.0"
-edition = "2021"
+edition = "2015"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-expect = { git = "https://github.com/ishibashi-futos/expect-rust", branch = "main" }
+expect_rs = { git = "https://github.com/ishibashi-futos/expect-rust", branch = "main" }

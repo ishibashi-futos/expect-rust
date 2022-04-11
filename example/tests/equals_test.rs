@@ -1,4 +1,4 @@
-use expect::expect;
+use expect_rs::expect;
 
 #[test]
 fn equals_str() {
