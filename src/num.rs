@@ -1,10 +1,13 @@
-use std::{fmt::Display, ops::Range};
+use std::{
+    fmt::{Debug, Display},
+    ops::RangeBounds,
+};
 
 use crate::Assert;
 
 impl<'a, T> Assert<'a, T>
 where
-    T: PartialOrd + Display,
+    T: PartialOrd + Display + Debug,
 {
     pub fn greater_than_or_equal_to(&self, expected: &T) -> &Self {
         assert!(
@@ -46,13 +49,15 @@ where
         self
     }
 
-    pub fn in_range(&self, expected: Range<T>) -> &Self {
+    pub fn in_range<R>(&self, expected: R) -> &Self
+    where
+        R: RangeBounds<T> + Debug,
+    {
         assert!(
             expected.contains(self.actual),
-            "not included in range: {} in [{}..{}]",
+            "not included in range: {} in {:?}",
             self.actual,
-            expected.start,
-            expected.end
+            expected,
         );
         self
     }
