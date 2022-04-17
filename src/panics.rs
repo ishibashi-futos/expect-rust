@@ -8,7 +8,6 @@ where
     pub fn should_panic(&mut self) -> &Self {
         match panic::catch_unwind(|| {
             (self.actual)();
-            println!("hello");
         }) {
             Ok(_) => {
                 panic!("should panic!")
