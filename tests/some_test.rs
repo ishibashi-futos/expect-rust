@@ -74,3 +74,16 @@ fn unwrap_some_none() {
 
     expect(&v).unwrap_some().in_range(100..200);
 }
+
+#[test]
+fn is_none_ok() {
+    let none: Option<String> = None;
+    expect(&none).is_none();
+}
+
+#[test]
+#[should_panic(expected = "should be equal None:")]
+fn is_none_err() {
+    let none: Option<String> = Some("Value".to_string());
+    expect(&none).is_none();
+}

@@ -32,6 +32,16 @@ where
             actual: self.is_some().actual.as_ref().unwrap(),
         }
     }
+
+    pub fn is_none(&self) -> &Self {
+        assert!(
+            self.actual.is_none(),
+            "should be equal None: {:?}",
+            self.actual
+        );
+
+        self
+    }
 }
 
 impl<'a, T> Not<'a, Option<T>>
