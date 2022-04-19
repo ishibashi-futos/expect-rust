@@ -57,4 +57,14 @@ where
 
         self
     }
+
+    pub fn is_none(&self) -> &Self {
+        assert!(
+            self.actual.is_some(),
+            "should be equal Some: {:?}",
+            self.actual
+        );
+
+        self
+    }
 }

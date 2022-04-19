@@ -87,3 +87,18 @@ fn is_none_err() {
     let none: Option<String> = Some("Value".to_string());
     expect(&none).is_none();
 }
+
+#[test]
+fn not_is_none_ok() {
+    let actual: Option<String> = Some("Hello".to_string());
+
+    expect(&actual).not().is_none();
+}
+
+#[test]
+#[should_panic(expected = "should be equal Some: None")]
+fn not_is_none_none_err() {
+    let actual: Option<String> = None;
+
+    expect(&actual).not().is_none();
+}
