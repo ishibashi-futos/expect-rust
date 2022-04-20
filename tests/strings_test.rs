@@ -16,3 +16,18 @@ fn is_match_invalid_pattern() {
 fn is_match_non_match_pattern() {
     expect(&"20140-01-01").is_match(r"^\d{4}-\d{2}-\d{2}$");
 }
+
+#[test]
+fn starts_with_ok() {
+    let str = "2022-04-05";
+
+    expect(&str).starts_with(&"2022-04-");
+}
+
+#[test]
+#[should_panic(expected = "not started with the specified string.")]
+fn starts_with_err() {
+    let str = "2022-05-05";
+
+    expect(&str).starts_with(&"2022-04-");
+}

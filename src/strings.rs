@@ -22,4 +22,16 @@ where
 
         self
     }
+
+    pub fn starts_with(&self, pattern: &str) -> &Self {
+        let str = self.actual.to_string();
+        assert!(
+            str.starts_with(pattern),
+            "not started with the specified string. pattern={}, actual={}",
+            pattern,
+            str
+        );
+
+        self
+    }
 }
