@@ -1,4 +1,5 @@
 mod arrays;
+mod assertions;
 mod boolean;
 mod equals;
 mod map;
