@@ -34,6 +34,17 @@ where
 
         self
     }
+
+    pub fn len(&self, length: usize) -> &Self {
+        assert_eq!(
+            self.actual.len(),
+            length,
+            "equal to length {}. actual = {}",
+            length,
+            self.actual.len()
+        );
+        self
+    }
 }
 
 impl<'a, T> Not<'a, Vec<T>>

@@ -85,3 +85,18 @@ fn must_not_be_found() {
         name: "SP".to_owned(),
     });
 }
+
+#[test]
+fn len_ok() {
+    let arr = vec![1, 2, 3];
+
+    expect(&arr).len(3);
+}
+
+#[test]
+#[should_panic]
+fn len_err() {
+    let arr = vec![1, 2, 3];
+
+    expect(&arr).len(4);
+}
