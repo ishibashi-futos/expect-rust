@@ -44,4 +44,20 @@ where
 
         self
     }
+
+    pub fn to_have_item(&self, key: &K, value: &V) -> &Self {
+        match self.actual.get(key) {
+            Some(v) => {
+                assert_eq!(
+                    v, value,
+                    "shoud be found: key = {:?}, value = {:?}",
+                    key, value
+                );
+            }
+            None => {
+                panic!("shoud be found: key = {:?}, value = {:?}", key, value)
+            }
+        }
+        self
+    }
 }

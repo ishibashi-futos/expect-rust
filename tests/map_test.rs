@@ -23,3 +23,35 @@ fn found_all() {
 
     expect(&map).contains_all(&expected);
 }
+
+#[test]
+fn to_have_item_found() {
+    let mut map = HashMap::new();
+    map.insert(1, "one");
+    map.insert(2, "two");
+    map.insert(3, "three");
+
+    expect(&map).to_have_item(&1, &"one");
+}
+
+#[test]
+#[should_panic]
+fn to_have_item_not_found_key() {
+    let mut map = HashMap::new();
+    map.insert(1, "one");
+    map.insert(2, "two");
+    map.insert(3, "three");
+
+    expect(&map).to_have_item(&4, &"one");
+}
+
+#[test]
+#[should_panic]
+fn to_have_item_not_found_value() {
+    let mut map = HashMap::new();
+    map.insert(1, "one");
+    map.insert(2, "two");
+    map.insert(3, "three");
+
+    expect(&map).to_have_item(&2, &"three");
+}
