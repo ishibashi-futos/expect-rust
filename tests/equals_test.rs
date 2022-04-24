@@ -55,3 +55,15 @@ fn not_equals_struct() {
         name: "TestStruct".to_owned(),
     });
 }
+
+#[test]
+fn equals_self() {
+    let actual = 100;
+    expect(&actual).equals(&100).in_range(1..=100);
+}
+
+#[test]
+fn not_equals_self() {
+    let actual = "Hello";
+    expect(&actual).not().equals(&"World").equals(&"Hello!");
+}
