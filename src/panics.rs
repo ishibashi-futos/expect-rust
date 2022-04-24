@@ -1,18 +1,17 @@
-use crate::Assert;
 use std::panic;
 
+use crate::Assert;
+
 impl<'a, T> Assert<'a, T>
-where
-    T: Fn() + std::panic::RefUnwindSafe,
+    where
+        T: Fn() + std::panic::RefUnwindSafe,
 {
     pub fn should_panic(&mut self) -> &Self {
-        match panic::catch_unwind(|| {
+        if let Ok(_) = panic::catch_unwind(|| {
             (self.actual)();
         }) {
-            Ok(_) => {
-                panic!("should panic!")
-            }
-            Err(_) => return self,
+            panic!("the provided function did not panic as expected")
         }
+        self
     }
 }

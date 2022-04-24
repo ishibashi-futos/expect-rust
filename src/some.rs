@@ -1,9 +1,10 @@
-use crate::{Assert, Not};
 use std::fmt::Debug;
 
+use crate::{Assert, Not};
+
 impl<'a, T> Assert<'a, Option<T>>
-where
-    T: Debug + PartialEq,
+    where
+        T: Debug + PartialEq,
 {
     pub fn is_some(&self) -> &Self {
         assert!(
@@ -45,8 +46,8 @@ where
 }
 
 impl<'a, T> Not<'a, Option<T>>
-where
-    T: Debug + PartialEq,
+    where
+        T: Debug + PartialEq,
 {
     pub fn is_some(&self) -> &Self {
         assert!(
