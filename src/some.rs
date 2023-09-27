@@ -1,5 +1,6 @@
-use crate::{Assert, Not};
 use std::fmt::Debug;
+
+use crate::{Assert, Not};
 
 impl<'a, T> Assert<'a, Option<T>>
 where

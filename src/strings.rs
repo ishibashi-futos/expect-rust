@@ -1,5 +1,6 @@
-use crate::Assert;
 use regex::Regex;
+
+use crate::Assert;
 
 impl<'a, T> Assert<'a, T>
 where

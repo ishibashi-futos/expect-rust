@@ -10,14 +10,10 @@ fn should_panic_has_err() {
 }
 
 #[test]
-#[should_panic(expected = "should panic!")]
+#[should_panic(expected = "the provided function did not panic as expected")]
 fn should_panic_has_not_err() {
     let f = || {
-        if true {
-            let _result: Result<(), String> = Ok(());
-        } else {
-            panic!("panic!");
-        }
+        let _result: Result<(), String> = Ok(());
     };
 
     expect(&f).should_panic();

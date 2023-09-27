@@ -9,14 +9,9 @@ where
     V: PartialEq + Debug,
 {
     pub fn contains_key(&self, key: &K) -> &Self {
-        match self.actual.get(key) {
-            Some(_) => {
-                // ok
-            }
-            None => {
-                panic!("[contains_key]should be found: {:?}", key);
-            }
-        }
+        self.actual.get(key).unwrap_or_else(|| {
+            panic!("[contains_key]should be found: {:?}", key);
+        });
         self
     }
 
@@ -36,8 +31,9 @@ where
             }
         }
 
-        assert!(
-            not_found.len() == 0,
+        assert_eq!(
+            not_found.len(),
+            0,
             "[contains_all]should not be found: {:?}",
             not_found
         );
@@ -50,12 +46,12 @@ where
             Some(v) => {
                 assert_eq!(
                     v, value,
-                    "shoud be found: key = {:?}, value = {:?}",
+                    "should be found: key = {:?}, value = {:?}",
                     key, value
                 );
             }
             None => {
-                panic!("shoud be found: key = {:?}, value = {:?}", key, value)
+                panic!("should be found: key = {:?}, value = {:?}", key, value)
             }
         }
         self

@@ -17,7 +17,7 @@ pub struct Not<'a, T> {
     actual: &'a T,
 }
 
-pub fn expect<'a, T>(actual: &'a T) -> Assert<'a, T> {
+pub fn expect<T>(actual: &T) -> Assert<T> {
     Assert { actual }
 }
 
