@@ -11,6 +11,16 @@ fn found_it() {
 }
 
 #[test]
+fn do_not_found() {
+    let map: HashMap<&str, &str> = HashMap::new();
+    assert!(
+        std::panic::catch_unwind(|| {
+            expect(&map).contains_key(&"Hello");
+        }).is_err()
+    )
+}
+
+#[test]
 fn found_all() {
     let mut map = HashMap::new();
     map.insert("Hello", "World!");
