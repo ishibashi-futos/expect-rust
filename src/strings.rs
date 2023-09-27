@@ -3,8 +3,8 @@ use regex::Regex;
 use crate::Assert;
 
 impl<'a, T> Assert<'a, T>
-    where
-        T: ToString,
+where
+    T: ToString,
 {
     pub fn is_match(&self, pattern: &str) -> &Self {
         match Regex::new(pattern) {

@@ -46,12 +46,7 @@ where
 {
     pub fn contains_all(&self, expected: &Vec<T>) -> &Self {
         let has = check_contains(self.actual, expected);
-        assert_eq!(
-            has.len(),
-            0,
-            "should not have {:?} in actual",
-            expected
-        );
+        assert_eq!(has.len(), 0, "should not have {:?} in actual", expected);
 
         self
     }
@@ -68,7 +63,10 @@ where
 }
 
 // 配列の要素を検証する共通のヘルパー関数
-fn check_contains<'a, T: PartialEq + Debug>(actual: &'a Vec<T>, expected: &'a Vec<T>) -> Vec<&'a T> {
+fn check_contains<'a, T: PartialEq + Debug>(
+    actual: &'a Vec<T>,
+    expected: &'a Vec<T>,
+) -> Vec<&'a T> {
     expected.iter().filter(|&e| actual.contains(e)).collect()
 }
 
@@ -78,8 +76,8 @@ mod tests {
 
     #[test]
     fn test_check_contains_all_elements() {
-        let actual = vec!(1, 2, 3, 4, 5);
-        let expected = vec!(1, 3, 5);
+        let actual = vec![1, 2, 3, 4, 5];
+        let expected = vec![1, 3, 5];
         let result = check_contains(&actual, &expected);
 
         assert_eq!(result, vec![&1, &3, &5]);

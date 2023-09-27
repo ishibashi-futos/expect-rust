@@ -3,9 +3,9 @@ use std::fmt::Debug;
 use crate::{Assert, Not};
 
 impl<'a, S, E> Assert<'a, Result<S, E>>
-    where
-        S: Debug + PartialEq,
-        E: Debug + PartialEq,
+where
+    S: Debug + PartialEq,
+    E: Debug + PartialEq,
 {
     pub fn is_ok(&self) -> &Self {
         assert!(self.actual.is_ok(), "must be Ok: actual: {:?}", self.actual);
@@ -18,11 +18,9 @@ impl<'a, S, E> Assert<'a, Result<S, E>>
         });
 
         assert_eq!(
-            value,
-            expected,
+            value, expected,
             "must be Ok and equals: expected: {:?}, actual: {:?}",
-            expected,
-            value
+            expected, value
         );
         self
     }
@@ -42,20 +40,18 @@ impl<'a, S, E> Assert<'a, Result<S, E>>
         });
 
         assert_eq!(
-            error,
-            expected,
+            error, expected,
             "must be Err and equals: expected: {:?}, actual: {:?}",
-            expected,
-            error
+            expected, error
         );
         self
     }
 }
 
 impl<'a, S, E> Not<'a, Result<S, E>>
-    where
-        S: Debug + PartialEq,
-        E: Debug + PartialEq,
+where
+    S: Debug + PartialEq,
+    E: Debug + PartialEq,
 {
     pub fn is_ok(&self) -> &Self {
         assert!(

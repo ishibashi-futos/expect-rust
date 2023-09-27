@@ -13,11 +13,10 @@ fn found_it() {
 #[test]
 fn do_not_found() {
     let map: HashMap<&str, &str> = HashMap::new();
-    assert!(
-        std::panic::catch_unwind(|| {
-            expect(&map).contains_key(&"Hello");
-        }).is_err()
-    )
+    assert!(std::panic::catch_unwind(|| {
+        expect(&map).contains_key(&"Hello");
+    })
+    .is_err())
 }
 
 #[test]

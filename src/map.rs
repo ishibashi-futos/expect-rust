@@ -31,7 +31,12 @@ where
             }
         }
 
-        assert_eq!(not_found.len(), 0, "[contains_all]should not be found: {:?}", not_found);
+        assert_eq!(
+            not_found.len(),
+            0,
+            "[contains_all]should not be found: {:?}",
+            not_found
+        );
 
         self
     }
